@@ -14,7 +14,7 @@ const ProductDetails = () => {
         id: 1,
         name: "Stylish Leather Jacket",
         price: 129.99,
-        description: "A premium quality stylish leather jacket, perfect for all seasons. Comfortable, durable, and trendy.",
+        description: "The Stylish Leather Jacket is a timeless piece of outerwear that blends sophistication and comfort. Crafted from premium leather, this jacket is perfect for any season, offering both warmth and breathability. The sleek design makes it an ideal match for both casual and formal occasions, providing versatility in styling. Whether paired with jeans for a relaxed look or with a button-down shirt for a more polished outfit, this jacket is guaranteed to elevate your wardrobe. With its durable construction and classic appeal, it's an investment piece that will last for years to come.",
         images: [
             "/images/product-1.jpg",
             "/images/product-2.jpg",
@@ -94,7 +94,12 @@ const ProductDetails = () => {
                     <div className="w-full lg:w-1/2 px-4">
                         <h1 className="text-3xl font-serif font-extrabold text-gray-900 mb-4">{product.name}</h1>
                         <p className="text-2xl text-gray-800 mb-4">${product.price.toFixed(2)}</p>
-                        <p className="text-gray-600 mb-6">{product.description}</p>
+
+                        {/* Product Description */}
+                        <div className="mb-6 text-gray-700">
+                            <h3 className="text-xl font-semibold text-gray-900 mb-3">Product Description:</h3>
+                            <p>{product.description}</p>
+                        </div>
 
                         {/* Product Specifications */}
                         <h3 className="text-lg font-semibold text-gray-800 mb-3">Specifications:</h3>
