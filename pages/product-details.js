@@ -137,18 +137,18 @@ const ProductDetails = () => {
                         </div>
 
                         <div className="flex space-x-6">
-                            <button
-                                onClick={handleAddToCart}
+                            <Link
+                                href={`/cart`}
                                 className="w-full lg:w-auto bg-gray-800 text-white font-semibold py-3 px-8 rounded-md hover:bg-gray-700 transition duration-200"
                             >
                                 Add to Cart
-                            </button>
-                            <button
-                                onClick={handleBuyNow}
+                            </Link>
+                            <Link
+                                href={`/buy`}
                                 className="bg-blue-700 text-white font-semibold py-3 px-8 rounded-md hover:bg-blue-600 transition duration-200"
                             >
                                 Buy Now
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
