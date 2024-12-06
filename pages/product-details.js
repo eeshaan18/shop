@@ -158,7 +158,7 @@ const ProductDetails = () => {
                                 <div className="p-6">
                                     <h3 className="text-xl font-serif font-semibold text-gray-900">{item.name}</h3>
                                     <p className="text-lg text-gray-700">${item.price.toFixed(2)}</p>
-                                    <Link href={`/product/${item.id}`} className="text-blue-700 hover:text-blue-800 mt-4 block">View Details</Link>
+                                    <Link href={`/product-details`} className="text-blue-700 hover:text-blue-800 mt-4 block">View Details</Link>
                                 </div>
                             </div>
                         ))}
