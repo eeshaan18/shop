@@ -5,7 +5,7 @@ import Footer from "@/components/Footer"; // Assuming Footer is a reusable compo
 import Link from "next/link";
 
 const Shop = () => {
-    // Array of products with details including image URL, description, and price
+    // Array of products with details including image URL, description, and rating
     const products = [
         {
             id: 1,
@@ -106,7 +106,7 @@ const Shop = () => {
                                 id="category"
                                 value={selectedCategory}
                                 onChange={(e) => setSelectedCategory(e.target.value)}
-                                className="ml-4 p-2 border border-gray-300 rounded-md bg-white text-gray-600 shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="ml-4 p-2 border border-gray-300 rounded-md bg-white text-gray-600 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-500"
                             >
                                 <option>All Categories</option>
                                 <option>Men</option>
@@ -123,7 +123,7 @@ const Shop = () => {
                                 id="sortOrder"
                                 value={sortOrder}
                                 onChange={(e) => setSortOrder(e.target.value)}
-                                className="ml-4 p-2 border border-gray-300 rounded-md bg-white text-gray-600 shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="ml-4 p-2 border border-gray-300 rounded-md bg-white text-gray-600 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-500"
                             >
                                 <option>Relevance</option>
                                 <option>Price: Low to High</option>
@@ -139,9 +139,9 @@ const Shop = () => {
                             <div key={product.id} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:scale-105">
                                 <img src={product.image} alt={product.name} className="w-full h-56 object-cover mb-4 rounded-md" />
                                 <h3 className="text-xl font-semibold text-gray-800 mb-2">{product.name}</h3>
-                                <p className="text-gray-600 text-sm mb-4">{product.description}</p>
-                                <p className="text-gray-700 font-semibold mb-4">${product.price}</p>
-                                <Link href="/product-details" className="inline-block mt-4 bg-black text-white py-2 px-6 rounded-full hover:bg-gray-800 transition-colors duration-200">
+                                <p className="text-gray-600 text-sm mb-2">{product.description}</p>
+                                <p className="text-gray-700 font-semibold">${product.price}</p>
+                                <Link href="/product-details" className="inline-block mt-4 bg-gray-800 text-white py-2 px-6 rounded-full hover:bg-gray-900 transition-colors duration-200">
                                     View Detail
                                 </Link>
                             </div>
