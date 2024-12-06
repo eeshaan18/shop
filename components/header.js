@@ -34,16 +34,16 @@ const Header = () => {
 
                     {/* Desktop Navigation */}
                     <nav className="hidden md:flex space-x-8">
-                        <Link href="/" className="hover:text-blue-600 transition">
+                        <Link href="/" className="hover:underline transition">
                             Home
                         </Link>
-                        <Link href="/shop" className="hover:text-blue-600 transition">
+                        <Link href="/shop" className="hover:underline transition">
                             Shop
                         </Link>
-                        <Link href="/about" className="hover:text-blue-600 transition">
+                        <Link href="/about" className="hover:underline transition">
                             About Us
                         </Link>
-                        <Link href="/contact" className="hover:text-blue-600 transition">
+                        <Link href="/contact" className="hover:underline transition">
                             Contact
                         </Link>
                     </nav>
@@ -133,13 +133,13 @@ const Header = () => {
                             <label className="block mb-2 text-gray-800">Email</label>
                             <input
                                 type="email"
-                                className="w-full px-4 py-2 mb-4 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500"
+                                className="w-full px-4 py-2 mb-4 border border-gray-300 rounded focus:ring-2 focus:ring-gray-500"
                                 placeholder="Enter your email"
                             />
                             <label className="block mb-2 text-gray-800">Password</label>
                             <input
                                 type="password"
-                                className="w-full px-4 py-2 mb-4 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500"
+                                className="w-full px-4 py-2 mb-4 border border-gray-300 rounded focus:ring-2 focus:ring-gray-500"
                                 placeholder="Enter your password"
                             />
                             {authMode === "signup" && (
@@ -147,12 +147,12 @@ const Header = () => {
                                     <label className="block mb-2 text-gray-800">Confirm Password</label>
                                     <input
                                         type="password"
-                                        className="w-full px-4 py-2 mb-4 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500"
+                                        className="w-full px-4 py-2 mb-4 border border-gray-300 rounded focus:ring-2 focus:ring-gray-500"
                                         placeholder="Confirm your password"
                                     />
                                 </>
                             )}
-                            <button className="w-full py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+                            <button className="w-full py-2 bg-gray-800 text-white rounded hover:bg-gray-900 transition">
                                 {authMode === "login" ? "Login" : "Signup"}
                             </button>
                         </form>
@@ -160,14 +160,14 @@ const Header = () => {
                             {authMode === "login" ? (
                                 <>
                                     Don't have an account?{" "}
-                                    <button onClick={() => setAuthMode("signup")} className="text-blue-600 underline">
+                                    <button onClick={() => setAuthMode("signup")} className="text-gray-800 underline">
                                         Sign up
                                     </button>
                                 </>
                             ) : (
                                 <>
                                     Already have an account?{" "}
-                                    <button onClick={() => setAuthMode("login")} className="text-blue-600 underline">
+                                    <button onClick={() => setAuthMode("login")} className="text-gray-800 underline">
                                         Log in
                                     </button>
                                 </>
