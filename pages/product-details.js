@@ -95,12 +95,6 @@ const ProductDetails = () => {
                         <h1 className="text-3xl font-serif font-extrabold text-gray-900 mb-4">{product.name}</h1>
                         <p className="text-2xl text-gray-800 mb-4">${product.price.toFixed(2)}</p>
 
-                        {/* Product Description */}
-                        <div className="mb-6 text-gray-700">
-                            <h3 className="text-xl font-semibold text-gray-900 mb-3">Product Description:</h3>
-                            <p>{product.description}</p>
-                        </div>
-
                         {/* Product Specifications */}
                         <h3 className="text-lg font-semibold text-gray-800 mb-3">Specifications:</h3>
                         <ul className="list-disc list-inside text-gray-600 mb-6">
@@ -108,6 +102,12 @@ const ProductDetails = () => {
                                 <li key={index}>{spec}</li>
                             ))}
                         </ul>
+
+                        {/* Product Description */}
+                        <div className="mb-6 text-gray-700">
+                            <h3 className="text-xl font-semibold text-gray-900 mb-3">Product Description:</h3>
+                            <p>{product.description}</p>
+                        </div>
 
                         {/* Size and Quantity Selection */}
                         <div className="flex items-center mb-6">
