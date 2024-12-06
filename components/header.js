@@ -11,13 +11,13 @@ const Header = () => {
     return (
         <div>
             {/* Header */}
-            <header className="bg-[#000000] text-[#FFFFFF] fixed w-full top-0 left-0 z-50 shadow-md">
+            <header className="bg-[#FFFFFF] text-[#333333] fixed w-full top-0 left-0 z-50 border-b border-gray-300">
                 <div className="container mx-auto flex items-center justify-between p-4 md:p-6">
                     {/* Logo */}
                     <a href="/" className="flex items-center">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            className="w-10 h-10 p-1 rounded-full bg-[#3A3A3A] text-[#FFFFFF] shadow-lg"
+                            className="w-10 h-10 p-1 rounded-full bg-[#EAEAEA] text-[#333333]"
                             viewBox="0 0 24 24"
                             fill="none"
                             stroke="currentColor"
@@ -32,16 +32,16 @@ const Header = () => {
 
                     {/* Desktop Navigation */}
                     <nav className="hidden md:flex space-x-8">
-                        <Link href="/" className="text-[#FFFFFF] hover:text-[#E0E0E0] transition duration-300">
+                        <Link href="/" className="text-[#333333] hover:text-[#555555] transition duration-300">
                             Home
                         </Link>
-                        <Link href="/shop" className="text-[#FFFFFF] hover:text-[#E0E0E0] transition duration-300">
+                        <Link href="/shop" className="text-[#333333] hover:text-[#555555] transition duration-300">
                             Shop
                         </Link>
-                        <Link href="/about" className="text-[#FFFFFF] hover:text-[#E0E0E0] transition duration-300">
+                        <Link href="/about" className="text-[#333333] hover:text-[#555555] transition duration-300">
                             About Us
                         </Link>
-                        <Link href="/contact" className="text-[#FFFFFF] hover:text-[#E0E0E0] transition duration-300">
+                        <Link href="/contact" className="text-[#333333] hover:text-[#555555] transition duration-300">
                             Contact
                         </Link>
                     </nav>
@@ -49,7 +49,7 @@ const Header = () => {
                     {/* Mobile Menu Toggle */}
                     <button
                         onClick={() => setShowMenu(!showMenu)}
-                        className="md:hidden focus:outline-none text-white"
+                        className="md:hidden focus:outline-none text-[#333333]"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +71,7 @@ const Header = () => {
                             setShowAuth(true);
                             setAuthMode("login");
                         }}
-                        className="hidden md:inline-block px-6 py-2 rounded-lg bg-[#3A3A3A] text-[#FFFFFF] font-medium hover:bg-[#4F4F4F] transition duration-300"
+                        className="hidden md:inline-block px-6 py-2 rounded-lg bg-[#EAEAEA] text-[#333333] font-medium hover:bg-[#D6D6D6] transition duration-300"
                     >
                         Login / Signup
                     </button>
@@ -80,8 +80,8 @@ const Header = () => {
 
             {/* Mobile Menu */}
             {showMenu && (
-                <div className="fixed inset-0 bg-black bg-opacity-75 z-50 flex justify-center items-center">
-                    <div className="bg-white w-4/5 p-6 rounded-lg shadow-md text-center">
+                <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center">
+                    <div className="bg-white w-4/5 p-6 rounded-lg text-center border border-gray-300">
                         <button
                             className="absolute top-4 right-4 text-gray-500 hover:text-black"
                             onClick={() => setShowMenu(false)}
@@ -89,16 +89,16 @@ const Header = () => {
                             ✕
                         </button>
                         <nav className="flex flex-col space-y-6 text-[#333333]">
-                            <Link href="/" onClick={() => setShowMenu(false)} className="hover:text-[#E0E0E0]">
+                            <Link href="/" onClick={() => setShowMenu(false)} className="hover:text-[#555555]">
                                 Home
                             </Link>
-                            <Link href="/shop" onClick={() => setShowMenu(false)} className="hover:text-[#E0E0E0]">
+                            <Link href="/shop" onClick={() => setShowMenu(false)} className="hover:text-[#555555]">
                                 Shop
                             </Link>
-                            <Link href="/about" onClick={() => setShowMenu(false)} className="hover:text-[#E0E0E0]">
+                            <Link href="/about" onClick={() => setShowMenu(false)} className="hover:text-[#555555]">
                                 About Us
                             </Link>
-                            <Link href="/contact" onClick={() => setShowMenu(false)} className="hover:text-[#E0E0E0]">
+                            <Link href="/contact" onClick={() => setShowMenu(false)} className="hover:text-[#555555]">
                                 Contact
                             </Link>
                         </nav>
@@ -108,7 +108,7 @@ const Header = () => {
                                 setShowAuth(true);
                                 setAuthMode("login");
                             }}
-                            className="mt-6 w-full py-2 bg-[#3A3A3A] text-[#FFFFFF] rounded-lg font-medium hover:bg-[#4F4F4F] transition"
+                            className="mt-6 w-full py-2 bg-[#EAEAEA] text-[#333333] rounded-lg font-medium hover:bg-[#D6D6D6] transition"
                         >
                             Login / Signup
                         </button>
@@ -119,7 +119,7 @@ const Header = () => {
             {/* Authentication Modal */}
             {showAuth && (
                 <div className="fixed inset-0 bg-gray-900 bg-opacity-50 z-50 flex items-center justify-center">
-                    <div className="bg-white w-96 p-8 rounded-lg shadow-md">
+                    <div className="bg-white w-96 p-8 rounded-lg border border-gray-300">
                         <button
                             className="absolute top-3 right-3 text-gray-500 hover:text-black"
                             onClick={() => setShowAuth(false)}
@@ -133,13 +133,13 @@ const Header = () => {
                             <label className="block mb-2 text-[#333333]">Email</label>
                             <input
                                 type="email"
-                                className="w-full px-4 py-2 mb-4 border border-[#B0B0B0] rounded-lg focus:ring-2 focus:ring-[#000000]"
+                                className="w-full px-4 py-2 mb-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#555555]"
                                 placeholder="Enter your email"
                             />
                             <label className="block mb-2 text-[#333333]">Password</label>
                             <input
                                 type="password"
-                                className="w-full px-4 py-2 mb-4 border border-[#B0B0B0] rounded-lg focus:ring-2 focus:ring-[#000000]"
+                                className="w-full px-4 py-2 mb-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#555555]"
                                 placeholder="Enter your password"
                             />
                             {authMode === "signup" && (
@@ -147,12 +147,12 @@ const Header = () => {
                                     <label className="block mb-2 text-[#333333]">Confirm Password</label>
                                     <input
                                         type="password"
-                                        className="w-full px-4 py-2 mb-4 border border-[#B0B0B0] rounded-lg focus:ring-2 focus:ring-[#000000]"
+                                        className="w-full px-4 py-2 mb-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#555555]"
                                         placeholder="Confirm your password"
                                     />
                                 </>
                             )}
-                            <button className="w-full py-2 bg-[#3A3A3A] text-[#FFFFFF] rounded-lg hover:bg-[#4F4F4F] transition">
+                            <button className="w-full py-2 bg-[#EAEAEA] text-[#333333] rounded-lg hover:bg-[#D6D6D6] transition">
                                 {authMode === "login" ? "Login" : "Signup"}
                             </button>
                         </form>
