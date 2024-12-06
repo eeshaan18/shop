@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 
 const ProductDetails = () => {
     const [quantity, setQuantity] = useState(1);
+    const [size, setSize] = useState('M'); // Default size is Medium
 
     const product = {
         id: 1,
@@ -24,7 +25,8 @@ const ProductDetails = () => {
             "Color: Black",
             "Size: M, L, XL",
             "Care: Dry clean only"
-        ]
+        ],
+        availableSizes: ['S', 'M', 'L', 'XL'] // Available sizes for the product
     };
 
     const similarProducts = [
@@ -53,12 +55,16 @@ const ProductDetails = () => {
         setQuantity(value);
     };
 
+    const handleSizeChange = (e) => {
+        setSize(e.target.value);
+    };
+
     const handleAddToCart = () => {
-        alert(`Added ${quantity} item(s) to your cart!`);
+        alert(`Added ${quantity} item(s) in size ${size} to your cart!`);
     };
 
     const handleBuyNow = () => {
-        alert(`Proceeding to checkout with ${quantity} item(s).`);
+        alert(`Proceeding to checkout with ${quantity} item(s) in size ${size}.`);
     };
 
     return (
@@ -103,7 +109,24 @@ const ProductDetails = () => {
                             ))}
                         </ul>
 
-                        {/* Quantity & Add to Cart */}
+                        {/* Size Selection */}
+                        <div className="flex items-center mb-6">
+                            <label htmlFor="size" className="text-gray-700 mr-4">Size:</label>
+                            <select
+                                id="size"
+                                value={size}
+                                onChange={handleSizeChange}
+                                className="w-32 h-10 border rounded-md focus:ring-2 focus:ring-gray-500 bg-gray-50 text-gray-800"
+                            >
+                                {product.availableSizes.map((sizeOption) => (
+                                    <option key={sizeOption} value={sizeOption}>
+                                        {sizeOption}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+
+                        {/* Quantity Selection */}
                         <div className="flex items-center mb-6">
                             <label htmlFor="quantity" className="text-gray-700 mr-4">Quantity:</label>
                             <input
@@ -111,19 +134,24 @@ const ProductDetails = () => {
                                 type="number"
                                 value={quantity}
                                 onChange={handleQuantityChange}
-                                className="w-16 h-10 text-center border rounded-md focus:ring-2 focus:ring-blue-500 bg-gray-50"
+                                className="w-16 h-10 text-center border rounded-md focus:ring-2 focus:ring-gray-500 bg-gray-50 text-gray-800"
                                 min="1"
                             />
                         </div>
 
                         <div className="flex space-x-6">
-                            
-                            <Link href="/cart" className="w-full lg:w-auto bg-black text-white font-semibold py-3 px-8 rounded-md hover:bg-gray-800 transition duration-200">
+                            <button
+                                onClick={handleAddToCart}
+                                className="w-full lg:w-auto bg-gray-900 text-white font-semibold py-3 px-8 rounded-md hover:bg-gray-700 transition duration-200"
+                            >
                                 Add to Cart
-                            </Link>
-                            <Link href="/buy" className="bg-blue-600 text-white font-semibold py-3 px-8 rounded-md hover:bg-green-700 transition duration-200">
+                            </button>
+                            <button
+                                onClick={handleBuyNow}
+                                className="bg-gray-800 text-white font-semibold py-3 px-8 rounded-md hover:bg-gray-700 transition duration-200"
+                            >
                                 Buy Now
-                            </Link>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -138,7 +166,7 @@ const ProductDetails = () => {
                                 <div className="p-6">
                                     <h3 className="text-xl font-serif font-semibold text-gray-900">{item.name}</h3>
                                     <p className="text-lg text-gray-700">${item.price.toFixed(2)}</p>
-                                    <Link href={`/product/${item.id}`} className="text-blue-600 hover:text-blue-800 mt-4 block">View Details</Link>
+                                    <Link href={`/product/${item.id}`} className="text-gray-800 hover:text-gray-900 mt-4 block">View Details</Link>
                                 </div>
                             </div>
                         ))}
