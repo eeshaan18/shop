@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 
 const ProductDetails = () => {
     const [quantity, setQuantity] = useState(1);
-    const [size, setSize] = useState('M'); // Default size is Medium
+    const [size, setSize] = useState('M');
 
     const product = {
         id: 1,
@@ -25,8 +25,7 @@ const ProductDetails = () => {
             "Color: Black",
             "Size: M, L, XL",
             "Care: Dry clean only"
-        ],
-        availableSizes: ['S', 'M', 'L', 'XL'] // Available sizes for the product
+        ]
     };
 
     const similarProducts = [
@@ -55,16 +54,12 @@ const ProductDetails = () => {
         setQuantity(value);
     };
 
-    const handleSizeChange = (e) => {
-        setSize(e.target.value);
-    };
-
     const handleAddToCart = () => {
-        alert(`Added ${quantity} item(s) in size ${size} to your cart!`);
+        alert(`Added ${quantity} item(s) of size ${size} to your cart!`);
     };
 
     const handleBuyNow = () => {
-        alert(`Proceeding to checkout with ${quantity} item(s) in size ${size}.`);
+        alert(`Proceeding to checkout with ${quantity} item(s) of size ${size}.`);
     };
 
     return (
@@ -72,12 +67,12 @@ const ProductDetails = () => {
             <Header />
             <div className="container mx-auto px-6 py-16">
                 {/* Product Breadcrumbs */}
-                <div className="flex items-center mb-8 text-sm text-gray-600">
-                    <Link href="/" className="hover:text-gray-800">Home</Link>
+                <div className="flex items-center mb-8 text-sm text-gray-700">
+                    <Link href="/" className="hover:text-gray-900">Home</Link>
                     <span className="mx-2">/</span>
-                    <Link href="/shop" className="hover:text-gray-800">Shop</Link>
+                    <Link href="/shop" className="hover:text-gray-900">Shop</Link>
                     <span className="mx-2">/</span>
-                    <span className="text-gray-800">{product.name}</span>
+                    <span className="text-gray-900">{product.name}</span>
                 </div>
 
                 <div className="flex flex-wrap lg:flex-nowrap">
@@ -98,7 +93,7 @@ const ProductDetails = () => {
                     {/* Product Info */}
                     <div className="w-full lg:w-1/2 px-4">
                         <h1 className="text-3xl font-serif font-extrabold text-gray-900 mb-4">{product.name}</h1>
-                        <p className="text-xl text-gray-700 mb-4">${product.price.toFixed(2)}</p>
+                        <p className="text-2xl text-gray-800 mb-4">${product.price.toFixed(2)}</p>
                         <p className="text-gray-600 mb-6">{product.description}</p>
 
                         {/* Product Specifications */}
@@ -109,24 +104,21 @@ const ProductDetails = () => {
                             ))}
                         </ul>
 
-                        {/* Size Selection */}
+                        {/* Size and Quantity Selection */}
                         <div className="flex items-center mb-6">
                             <label htmlFor="size" className="text-gray-700 mr-4">Size:</label>
                             <select
                                 id="size"
                                 value={size}
-                                onChange={handleSizeChange}
-                                className="w-32 h-10 border rounded-md focus:ring-2 focus:ring-gray-500 bg-gray-50 text-gray-800"
+                                onChange={(e) => setSize(e.target.value)}
+                                className="w-32 h-10 text-center border rounded-md focus:ring-2 focus:ring-blue-500 bg-gray-50 text-gray-700"
                             >
-                                {product.availableSizes.map((sizeOption) => (
-                                    <option key={sizeOption} value={sizeOption}>
-                                        {sizeOption}
-                                    </option>
-                                ))}
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
                             </select>
                         </div>
 
-                        {/* Quantity Selection */}
                         <div className="flex items-center mb-6">
                             <label htmlFor="quantity" className="text-gray-700 mr-4">Quantity:</label>
                             <input
@@ -134,7 +126,7 @@ const ProductDetails = () => {
                                 type="number"
                                 value={quantity}
                                 onChange={handleQuantityChange}
-                                className="w-16 h-10 text-center border rounded-md focus:ring-2 focus:ring-gray-500 bg-gray-50 text-gray-800"
+                                className="w-16 h-10 text-center border rounded-md focus:ring-2 focus:ring-blue-500 bg-gray-50 text-gray-700"
                                 min="1"
                             />
                         </div>
@@ -142,13 +134,13 @@ const ProductDetails = () => {
                         <div className="flex space-x-6">
                             <button
                                 onClick={handleAddToCart}
-                                className="w-full lg:w-auto bg-gray-900 text-white font-semibold py-3 px-8 rounded-md hover:bg-gray-700 transition duration-200"
+                                className="w-full lg:w-auto bg-gray-800 text-white font-semibold py-3 px-8 rounded-md hover:bg-gray-700 transition duration-200"
                             >
                                 Add to Cart
                             </button>
                             <button
                                 onClick={handleBuyNow}
-                                className="bg-gray-800 text-white font-semibold py-3 px-8 rounded-md hover:bg-gray-700 transition duration-200"
+                                className="bg-blue-700 text-white font-semibold py-3 px-8 rounded-md hover:bg-blue-600 transition duration-200"
                             >
                                 Buy Now
                             </button>
@@ -166,7 +158,7 @@ const ProductDetails = () => {
                                 <div className="p-6">
                                     <h3 className="text-xl font-serif font-semibold text-gray-900">{item.name}</h3>
                                     <p className="text-lg text-gray-700">${item.price.toFixed(2)}</p>
-                                    <Link href={`/product/${item.id}`} className="text-gray-800 hover:text-gray-900 mt-4 block">View Details</Link>
+                                    <Link href={`/product/${item.id}`} className="text-blue-700 hover:text-blue-800 mt-4 block">View Details</Link>
                                 </div>
                             </div>
                         ))}
